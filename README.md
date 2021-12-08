@@ -11,11 +11,20 @@
 
 界面设计我们可以用QT界面生成器 `Qt Designer` ，使用方法有二种：
 1. 动态加载UI文件
+	```
+	self.ui = QUiLoader().load('untitled.ui')
+	```
 2. 转化UI文件为Python代码
-
+	```
+	pyside2-uic main.ui > ui_main.py
+	```
 Windows下，运行 Python安装目录下 Scripts\pyside2-designer.exe 这个可执行文件
 
-我的路径是：
+- 那么我们该使用哪种方式比较好呢？动态加载还是转化为Python代码？
+通常采用动态加载比较方便，因为改动界面后，不需要转化，直接运行，特别方便。
+但是，如果 你的程序里面有非qt designer提供的控件， 这时候，需要在代码里面加上一些额外的声明，而且 可能还会有奇怪的问题。往往就 要采用 转化Python代码的方法。
+
+- 我的UI编辑路径是：
 C:\Users\cds\.conda\envs\pyside2_qt\Scripts
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/727071e1c3254658899996ff6b27f791.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pep552h55qE5Y-25a2Q,size_20,color_FFFFFF,t_70,g_se,x_16)
 
